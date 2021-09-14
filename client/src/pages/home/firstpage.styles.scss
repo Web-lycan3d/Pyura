@@ -10,8 +10,9 @@ $maincolor: #1a2771;
 .bg-img {
   position: absolute;
   right: -40rem;
-
+  height: 100%;
   img {
+    height: 100%;
     width: 1550px;
     object-fit: contain;
   }
@@ -156,7 +157,6 @@ $maincolor: #1a2771;
 
     img {
       width: 1400px;
-      object-fit: cover;
     }
   }
 
