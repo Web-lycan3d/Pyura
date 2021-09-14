@@ -44,6 +44,11 @@ const Secondslide = () => {
             src="https://i.ibb.co/y4s7Q7H/Pyura-renders-8.webp"
             alt="pyura3"
           />
+          <div className="second-img-text">
+            <p>
+              Eliminates <span> 99.99%</span> Covid Virus
+            </p>
+          </div>
         </div>
       </div>
       <div className="second-cards">
