@@ -8,7 +8,6 @@ import "./App.styles.scss";
 import Navbar from "./components/nav/Navbar";
 import Footer from './components/footer/footer.component'
 import Contact from "./pages/contact/contact.component"
-
 import Home from "./pages/home/Home";
 
 const App = () => {
