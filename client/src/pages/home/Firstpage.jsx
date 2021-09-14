@@ -32,6 +32,26 @@ const Firstpage = () => {
           <AiOutlineDown className="center-down-icon" />
         </div>
       </div>
+      <div className="firstpage-contents-2">
+        <div className="firstpage-img-2">
+          <img
+            src="https://i.ibb.co/RYgzHJ7/Pyura-renders-5.webp"
+            alt="pyura2"
+          />
+        </div>
+        <div className="firstpage-text-2">
+          <h2>Prioritize your Safety</h2>
+          <span>
+            Pyura Air’s wearable air purifier is a breakthrough in air purifying
+            technology. Its unique ergonomic design has various advantages over
+            conventional mask designs available in the market.
+            <br /> <br />
+            Pyura Air is completely maintenance-free, safe and stable,
+            lightweight and compact. The replaceable skins add a personal touch
+            to the mask by complementing the individual’s style.
+          </span>
+        </div>
+      </div>
     </div>
   );
 };
