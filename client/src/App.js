@@ -2,13 +2,14 @@
 
 import "./App.styles.scss";
 import Navbar from "./components/nav/Navbar";
-import Firstpage from "./pages/home/Firstpage";
+
+import Home from "./pages/home/Home";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Firstpage />
+      <Home />
     </div>
   );
 }
