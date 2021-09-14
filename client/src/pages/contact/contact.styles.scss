@@ -1,0 +1,94 @@
+/** @format */
+$whitecolor: #eee;
+.contact-banner {
+  display: flex;
+  position: relative;
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .contact-title {
+    position: absolute;
+    top: 0%;
+    left: 10%;
+    width: 60%;
+
+    h1 {
+      font-family: "mainregular";
+      font-size: 4rem;
+      letter-spacing: 1.6px;
+      margin-bottom: 0.65rem;
+      color: #eee;
+      font-weight: 200;
+    }
+    h4 {
+      font-family: "mainregular";
+      font-size: 1.2rem;
+      color: #eee;
+      font-weight: 100;
+    }
+  }
+}
+.contact-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2%;
+    padding-top: 4%;
+    width:30%;
+    justify-content: center;
+
+    .detail {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 15%;
+      align-items: center;
+
+      .contact_icon {
+        color: #1a2771;
+        height: 2rem;
+        width: 2rem;
+      }
+
+      span {
+        font-size: 22px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #1a2771;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .map {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .contact-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    padding-right: 2%;
+    
+    p {
+      font-size: 1.2rem;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1a2771;
+      text-align: right;
+    }
+  }
+}
