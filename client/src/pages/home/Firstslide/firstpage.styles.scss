@@ -32,7 +32,7 @@ $maincolor: #1a2771;
 .firstpage-text {
   width: 33%;
   position: relative;
-  bottom: 2.2rem;
+  bottom: 2.6rem;
   h1 {
     font-family: "mainregular";
     font-size: 4.5rem;
@@ -81,6 +81,7 @@ $maincolor: #1a2771;
   position: absolute;
   top: 92%;
   left: 45%;
+  z-index: 3;
   transform: translate(-50%, -50%);
   font-family: "Poppins", sans-serif;
   display: flex;

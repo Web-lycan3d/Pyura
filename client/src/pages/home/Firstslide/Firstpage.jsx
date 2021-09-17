@@ -16,7 +16,7 @@ const Firstpage = () => {
           </h1>
           <p>Breathe In Purity</p>
           <span>
-            An innovation for and beyond COVID... Pyura Air is a wearable,
+            An innovation for and beyond COVID. Pyura Air is a wearable,
             self-sanitizing & air purifying mask. With our distinctive air
             filtration system, protect your loved ones from suffocation,
             allergens, microbes and smelly masks! It is the everyday solution to
