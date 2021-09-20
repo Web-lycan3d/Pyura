@@ -9,6 +9,7 @@ import Footer from "./components/footer/footer.component";
 import Contact from "./pages/contact/contact.component";
 import Home from "./pages/home/Home";
 import OrderStatus from "./pages/orderStatus/OrderStatus";
+import Checkout from "./pages/checkout/Checkout";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/user/order" component={OrderStatus} />
+        <Route exact path="/user/checkout" component={Checkout} />
       </Switch>
       <Footer />
     </Fragment>

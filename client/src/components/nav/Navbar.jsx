@@ -22,9 +22,9 @@ const Navbar = () => {
               <BiCart className="nav-items-icon" /> Order status
             </button>
           </Link>
-          <Link to="/user/order" className="link-tag-navbar">
+          <Link to="/user/checkout" className="link-tag-navbar">
             <button>
-              <BiCart className="nav-items-icon" /> Go to cart
+              <BiCart className="nav-items-icon" /> Get yours!
             </button>
           </Link>
         </div>

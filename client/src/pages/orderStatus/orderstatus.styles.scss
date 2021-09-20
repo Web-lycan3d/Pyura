@@ -12,6 +12,42 @@
   justify-content: center;
   align-items: center;
 }
+.loader-c {
+  display: inline;
+}
+.loading {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 0.25rem solid rgba(255, 255, 255, 0.2);
+  border-top-color: #1a2771;
+  animation: spin 1s infinite linear;
+}
+.loader-spin {
+  user-select: none;
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid transparent;
+
+  transition: 0.5s ease-in-out;
+  width: 90px;
+  font-size: 20px;
+  height: 35px;
+  cursor: pointer;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .order-s-box {
   width: 45rem;
   margin: 0 auto;
@@ -69,16 +105,28 @@
       width: 10rem;
     }
     .error-msg {
-      display: block;
       font-size: 0.8rem;
       margin-left: 0.4rem;
-
+      margin: 0.2rem 0.4rem;
       color: red;
     }
+    .rensend-tag {
+      margin: 0 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 400;
+      span {
+        text-decoration: underline;
+        cursor: pointer;
+        font-weight: 500;
+      }
+    }
     .order-s-input-1 {
-      margin-bottom: 0.95rem;
+      margin-bottom: 0.05rem;
+      display: flex;
+      align-items: center;
     }
     .order-s-input-2 {
+      margin-top: 1rem;
       margin-bottom: 1.95rem;
     }
   }
