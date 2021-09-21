@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import Cards from "../../../components/nav/Secondslidecards/Cards";
+import Cards from "../../../components/Secondslidecards/Cards";
 import "./secondslide.styles.scss";
 
 const Secondslide = () => {
