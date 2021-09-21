@@ -1,18 +1,19 @@
 /** @format */
 
 import React, { useState } from "react";
-import "./checkout.styles.scss";
+import "./product.styles.scss";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import ImageCarausel from "../../components/Caraousel/ImageCarausel";
-const Checkout = () => {
+
+const Product = () => {
   const [Quantity, setQuantity] = useState(1);
   return (
-    <div className="checkout-container">
-      <div className="checkout-contents">
-        <div className="checkout-img">
+    <div className="product-container">
+      <div className="product-contents">
+        <div className="product-img">
           <ImageCarausel />
         </div>
-        <div className="checkout-details">
+        <div className="product-details">
           <h2>
             Pyura <span>air</span>
           </h2>
@@ -29,8 +30,8 @@ const Checkout = () => {
             and comfortable design, Pyura Air is the essential product needed in
             this day and age.
           </span>
-          <div className="checkout-div">
-            <div className="checkout-order-quantity">
+          <div className="product-div">
+            <div className="product-order-quantity">
               <IoIosArrowUp
                 className="arrow-icons"
                 onClick={() => setQuantity((preV) => preV + 1)}
@@ -41,7 +42,7 @@ const Checkout = () => {
                 onClick={() => setQuantity((preV) => preV - 1)}
               />
             </div>
-            <div className="checkout-btn">
+            <div className="product-btn">
               <button>Checkout</button>
             </div>
           </div>
@@ -51,4 +52,4 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+export default Product;
