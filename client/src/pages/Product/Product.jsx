@@ -1,12 +1,32 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./product.styles.scss";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import ImageCarausel from "../../components/Caraousel/ImageCarausel";
+import { useHistory } from "react-router";
 
 const Product = () => {
   const [Quantity, setQuantity] = useState(1);
+  const [quantityError, setQuantityError] = useState(false);
+  const history = useHistory();
+
+  const handleProductCheckout = () => {
+    if (Quantity <= 0) {
+      setQuantityError(true);
+    } else {
+      setQuantityError(false);
+      history.push("/user/checkout?q=" + Quantity);
+    }
+  };
+  useEffect(() => {
+    if (Quantity <= 0) {
+      setQuantityError(true);
+    } else {
+      setQuantityError(false);
+    }
+  }, [Quantity]);
+
   return (
     <div className="product-container">
       <div className="product-contents">
@@ -43,8 +63,15 @@ const Product = () => {
               />
             </div>
             <div className="product-btn">
-              <button>Checkout</button>
+              <button disabled={quantityError} onClick={handleProductCheckout}>
+                Checkout
+              </button>
             </div>
+            {quantityError && (
+              <span className="qunatity-error">
+                quantity can't be zero or negative
+              </span>
+            )}
           </div>
         </div>
       </div>

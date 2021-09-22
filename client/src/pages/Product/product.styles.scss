@@ -5,16 +5,18 @@
   height: 100vh;
 }
 .product-contents {
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 88%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .product-img {
-  width: 300px;
-  height: 300px;
+  width: 450px;
+  height: 550px;
+  position: relative;
+  bottom: 2rem;
   img {
     width: 100%;
     height: 100%;
@@ -22,14 +24,15 @@
   }
 }
 .product-details {
-  max-width: 38rem;
-  margin-left: 10%;
+  width: 35%;
+  margin-left: 8%;
   position: relative;
-
+  top: 2rem;
+  left: 3%;
   h2 {
     margin: 0 0 0.8rem;
     font-family: "mainregular";
-    font-size: 2.7rem;
+    font-size: 3rem;
     color: #1a2771;
     font-weight: 200;
     span {
@@ -43,8 +46,8 @@
     font-family: "Poppins", sans-serif;
     font-size: 1rem;
     color: #1a2771;
-    font-weight: 400;
-    line-height: 1.6;
+    font-weight: 300;
+    line-height: 1.9;
     letter-spacing: 0.5px;
   }
   .product-div {
@@ -59,24 +62,26 @@
       align-items: center;
       margin-left: 0.4rem;
       width: 2rem;
+      position: relative;
       p {
         width: 100%;
         height: 1.75rem;
         font-family: "Poppins", sans-serif;
         margin: 0.1rem 0;
         font-size: 1.05rem;
-        color: white;
+        color: rgb(0, 0, 0);
         position: relative;
         text-align: center;
-
+        z-index: 2;
         &::after {
           position: absolute;
-          left: 0.1rem;
-          top: -0.1rem;
+          left: -0.05rem;
+          top: -0.2rem;
 
           width: 30px;
           height: 30px;
-          background: #1a2771;
+          background: #1a277100;
+          border: 2px solid #1a2771;
           content: "";
           z-index: -1;
           border-radius: 50%;
@@ -85,6 +90,7 @@
       .arrow-icons {
         font-size: 1.7rem;
         cursor: pointer;
+
         &:hover {
           color: #b13434;
         }
@@ -108,5 +114,17 @@
       color: black;
       border: 2px solid #1a2771;
     }
+  }
+}
+.qunatity-error {
+  position: absolute;
+  font-size: 0.8rem;
+  color: red;
+  bottom: 0.2rem;
+  left: 4rem;
+}
+@media screen and (max-width: 1500px) {
+  .product-details {
+    width: 40%;
   }
 }
