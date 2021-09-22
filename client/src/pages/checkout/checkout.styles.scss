@@ -53,7 +53,7 @@
 .checkout-img {
   width: 30%;
   height: 100%;
-
+  box-shadow: 10px 0px 30px rgba(0, 0, 0, 0.041);
   img {
     width: 100%;
     height: 100%;
@@ -67,6 +67,7 @@
   justify-content: space-between;
   margin-left: 4rem;
   font-family: "Poppins", sans-serif;
+
   .checkout-details-left {
     width: 40%;
     h1 {
