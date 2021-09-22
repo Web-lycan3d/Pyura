@@ -2,7 +2,10 @@
 
 .checkout-container {
   width: 100%;
-  min-height: 105vh;
+  height: 105vh;
+
+  padding-bottom: 2rem;
+  position: relative;
 }
 @mixin button {
   font-family: "Poppins", sans-serif;
@@ -43,6 +46,61 @@
     border: 1px solid #1a2771;
   }
 }
+.not-verified-modal {
+  text-align: center;
+  background-color: white;
+  position: relative;
+  z-index: 10000;
+
+  .modal-contents {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    margin: 0 auto;
+
+    color: rgb(0, 0, 0);
+    padding: 0.5rem;
+    animation: animate 0.3s linear;
+    transform-origin: center;
+    background-color: rgba(255, 255, 255, 0.575);
+    .items {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 22rem;
+      padding: 1.6rem 1rem;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.089);
+    }
+    h5 {
+      font-family: "Poppins", sans-serif;
+      position: relative;
+      bottom: 0.3rem;
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .close-icon {
+      margin-top: 0.8rem;
+      font-size: 1.4rem;
+      cursor: pointer;
+      &:hover {
+        color: rgb(248, 60, 60);
+      }
+    }
+  }
+}
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 .checkout-contents {
   width: 100%;
   height: 100vh;
@@ -63,8 +121,10 @@
 .checkout-details {
   margin-top: 2%;
   width: 100%;
+  height: 85%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-left: 4rem;
   font-family: "Poppins", sans-serif;
 
@@ -180,7 +240,7 @@
         letter-spacing: 0.3px;
       }
       &:focus {
-        width: 80%;
+        width: 40%;
         border: 1px solid #1a2771;
       }
     }
