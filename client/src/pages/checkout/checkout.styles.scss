@@ -2,7 +2,7 @@
 
 .checkout-container {
   width: 100%;
-  height: 100vh;
+  min-height: 105vh;
 }
 @mixin button {
   font-family: "Poppins", sans-serif;
@@ -49,13 +49,7 @@
   display: flex;
   justify-content: space-around;
 }
-form {
-  width: 70%;
-  display: flex;
-  justify-content: space-between;
-  margin-left: 4rem;
-  font-family: "Poppins", sans-serif;
-}
+
 .checkout-img {
   width: 30%;
   height: 100%;

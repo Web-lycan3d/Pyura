@@ -64,11 +64,6 @@ const Checkout = () => {
   const handleResendOTP = () => {
     console.log(userData.phonenumber);
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(userData);
-  };
   return (
     <div className="checkout-container">
       <div className="checkout-contents">
@@ -78,156 +73,147 @@ const Checkout = () => {
             alt="pyuracheckoutimg"
           />
         </div>
-        <form onSubmit={handleSubmit}>
-          <div className="checkout-details">
-            <div className="checkout-details-left">
-              <h1>Checkout</h1>
-              <p>Contact information</p>
-              <div className="checkout-contact-form">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  required
-                  onChange={(e) =>
-                    setUserData({ ...userData, email: e.target.value })
-                  }
-                />
-                <div className="checkout-mobile-ver">
-                  <input
-                    type="text"
-                    name="phonenumber"
-                    required
-                    placeholder="Phone number"
-                    onChange={(e) =>
-                      setUserData({ ...userData, phonenumber: e.target.value })
-                    }
-                  />
-                  {btnloaderState ? (
-                    <div className="loader-c">
-                      <span className="loader-spin">
-                        <div className="loading"></div>
-                      </span>
-                    </div>
-                  ) : (
-                    <button onClick={handleCheckoutOTP}>Submit</button>
-                  )}
-                </div>
-                {otpsentStatus && (
-                  <>
-                    <span className="checkout-errors">
-                      OTP sent to {userData.phonenumber}{" "}
-                    </span>{" "}
-                    <span className="checkout-otp-resend">
-                      To resend OTP{" "}
-                      <span onClick={handleResendOTP}>Click here</span>
-                    </span>
-                  </>
-                )}
-                {phoneError && (
-                  <span className="checkout-errors">Not valid</span>
-                )}
-                <div className="checkout-otp">
-                  <input
-                    type="text"
-                    name="otp"
-                    value={userOtpin}
-                    onChange={(e) => setUserOtpin(e.target.value)}
-                    disabled={!otpsentStatus}
-                    placeholder="Enter OTP"
-                  />
-                  <button disabled={!otpsentStatus} onClick={verifyOtp}>
-                    Verify
-                  </button>
-                </div>
 
-                <div className="checkout-address">
-                  <h4>Shipping Address</h4>
-                  <div className="address-name">
-                    <input
-                      type="text"
-                      name="firstname"
-                      placeholder="First Name"
-                      disabled={!otpsentStatus}
-                    />
-                    <input
-                      type="text"
-                      name="lastname"
-                      placeholder="Last Name"
-                      disabled={!otpsentStatus}
-                    />
-                  </div>
-                  <textarea
-                    name="address"
-                    cols="30"
-                    rows="4"
-                    placeholder="Address"
-                    disabled={!otpsentStatus}></textarea>
-                  <div className="address-city">
-                    <input
-                      type="text"
-                      name="city"
-                      placeholder="City"
-                      disabled={!otpsentStatus}
-                    />
-                    <input
-                      type="text"
-                      name="state"
-                      placeholder="State"
-                      disabled={!otpsentStatus}
-                    />
-                    <input
-                      type="text"
-                      name="pincode"
-                      placeholder="Zip/Pin"
-                      disabled={!otpsentStatus}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="checkout-details-right">
-              <div className="chechout-header-right">
-                <img
-                  src="https://i.ibb.co/WKbtMcw/Pyura-renders-2.webp"
-                  alt="err"
-                />
-                <p>
-                  <sub>Rs 6999/unit</sub> {itemquanity}
-                </p>
-              </div>
-              <div className="discount-input">
+        <div className="checkout-details">
+          <div className="checkout-details-left">
+            <h1>Checkout</h1>
+            <p>Contact information</p>
+            <div className="checkout-contact-form">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                onChange={(e) =>
+                  setUserData({ ...userData, email: e.target.value })
+                }
+              />
+              <div className="checkout-mobile-ver">
                 <input
                   type="text"
-                  name="discount"
-                  placeholder="Discount code"
+                  name="phonenumber"
+                  required
+                  placeholder="Phone number"
+                  onChange={(e) =>
+                    setUserData({ ...userData, phonenumber: e.target.value })
+                  }
                 />
-                <button>Apply</button>
+                {btnloaderState ? (
+                  <div className="loader-c">
+                    <span className="loader-spin">
+                      <div className="loading"></div>
+                    </span>
+                  </div>
+                ) : (
+                  <button onClick={handleCheckoutOTP}>Submit</button>
+                )}
               </div>
-              <div className="checkout-total">
-                <div className="checkout-total-1">
-                  <p>Sub Total</p>
-                  <span>Rs {subtotal}</span>
-                </div>
-                <div className="checkout-total-1">
-                  <p>Shipping</p>
-                  <span>Rs {shippingTotal}</span>
-                </div>
-              </div>
-              <div className="checkout-total-main">
-                <h5>
-                  Total <sub>Inclusive of GST</sub>{" "}
-                </h5>
-                <span>Rs {totalPrice}</span>
-              </div>
-              <div className="checkout-submit-btn">
-                <button disabled={!otpsentStatus} type="submit">
-                  Pay Now
+              {otpsentStatus && (
+                <>
+                  <span className="checkout-errors">
+                    OTP sent to {userData.phonenumber}{" "}
+                  </span>{" "}
+                  <span className="checkout-otp-resend">
+                    To resend OTP{" "}
+                    <span onClick={handleResendOTP}>Click here</span>
+                  </span>
+                </>
+              )}
+              {phoneError && <span className="checkout-errors">Not valid</span>}
+              <div className="checkout-otp">
+                <input
+                  type="text"
+                  name="otp"
+                  value={userOtpin}
+                  onChange={(e) => setUserOtpin(e.target.value)}
+                  disabled={!otpsentStatus}
+                  placeholder="Enter OTP"
+                />
+                <button disabled={!otpsentStatus} onClick={verifyOtp}>
+                  Verify
                 </button>
+              </div>
+
+              <div className="checkout-address">
+                <h4>Shipping Address</h4>
+                <div className="address-name">
+                  <input
+                    type="text"
+                    name="firstname"
+                    placeholder="First Name"
+                    disabled={!otpsentStatus}
+                  />
+                  <input
+                    type="text"
+                    name="lastname"
+                    placeholder="Last Name"
+                    disabled={!otpsentStatus}
+                  />
+                </div>
+                <textarea
+                  name="address"
+                  cols="30"
+                  rows="4"
+                  placeholder="Address"
+                  disabled={!otpsentStatus}></textarea>
+                <div className="address-city">
+                  <input
+                    type="text"
+                    name="city"
+                    placeholder="City"
+                    disabled={!otpsentStatus}
+                  />
+                  <input
+                    type="text"
+                    name="state"
+                    placeholder="State"
+                    disabled={!otpsentStatus}
+                  />
+                  <input
+                    type="text"
+                    name="pincode"
+                    placeholder="Zip/Pin"
+                    disabled={!otpsentStatus}
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </form>
+          <div className="checkout-details-right">
+            <div className="chechout-header-right">
+              <img
+                src="https://i.ibb.co/WKbtMcw/Pyura-renders-2.webp"
+                alt="err"
+              />
+              <p>
+                <sub>Rs 6999/unit</sub> {itemquanity}
+              </p>
+            </div>
+            <div className="discount-input">
+              <input type="text" name="discount" placeholder="Discount code" />
+              <button>Apply</button>
+            </div>
+            <div className="checkout-total">
+              <div className="checkout-total-1">
+                <p>Sub Total</p>
+                <span>Rs {subtotal}</span>
+              </div>
+              <div className="checkout-total-1">
+                <p>Shipping</p>
+                <span>Rs {shippingTotal}</span>
+              </div>
+            </div>
+            <div className="checkout-total-main">
+              <h5>
+                Total <sub>Inclusive of GST</sub>{" "}
+              </h5>
+              <span>Rs {totalPrice}</span>
+            </div>
+            <div className="checkout-submit-btn">
+              <button disabled={!otpsentStatus}>Pay Now</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
