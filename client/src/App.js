@@ -12,6 +12,7 @@ import OrderStatus from "./pages/orderStatus/OrderStatus";
 import About from './pages/about/about.component'
 
 import Product from "./pages/Product/Product";
+import Checkout from "./pages/checkout/Checkout";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route exact path="/user/order" component={OrderStatus} />
         <Route exact path="/user/product" component={Product} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/user/checkout" component={Checkout} />
       </Switch>
       <Footer />
     </Fragment>
