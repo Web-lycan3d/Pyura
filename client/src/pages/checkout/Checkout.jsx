@@ -8,8 +8,14 @@ import { useLocation } from "react-router";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import axios from "axios";
 import apiurl from "../../apiurl";
+import serverUrl from "../../api/api";
 
 const backendUrl = apiurl();
+
+const discountDetails = {
+  code: "code",
+  price: 1000,
+};
 
 const Checkout = () => {
   const location = useLocation();
@@ -35,9 +41,14 @@ const Checkout = () => {
   const [pincodeErr, setpincodeErr] = useState(false);
   const [notverifyUser, setNotVerifyUser] = useState(false);
   const [verifyOTP, setVerifyOTP] = useState(false);
+  const [userDiscount, setUserDiscount] = useState("");
+  const [discountState, setDiscountState] = useState(null);
+  const [discountState2, setDiscountState2] = useState(false);
+  const [TotalPrice, setTotalPrice] = useState("");
 
   useEffect(() => {
     const { q } = query.parse(location.search);
+
     setitemquanity(parseInt(q));
   }, [location.search]);
 
@@ -45,6 +56,10 @@ const Checkout = () => {
   const itemprice = 6999;
   const subtotal = itemprice * itemquanity;
   const totalPrice = subtotal + shippingTotal;
+
+  useEffect(() => {
+    setTotalPrice(totalPrice);
+  }, [totalPrice]);
 
   const handleCheckoutOTP = (e) => {
     e.preventDefault();
@@ -76,6 +91,21 @@ const Checkout = () => {
   const handleResendOTP = () => {
     console.log(userData.phonenumber);
   };
+
+  const handleDiscount = () => {
+    if (userDiscount === discountDetails.code) {
+      //related to code state
+      setDiscountState(true);
+      setDiscountState2(false);
+
+      //related to totalprice
+      setTotalPrice((prevalue) => prevalue - discountDetails.price);
+    } else {
+      setDiscountState(false);
+      setDiscountState2(true);
+    }
+  };
+
   const handleFormSubmit = async () => {
     const { email, address, firstname, city, state, pincode } = userData;
     const validateEmail = validator.isEmail(email);
@@ -122,18 +152,25 @@ const Checkout = () => {
       validateEmail &&
       validateAddress &&
       validateFN &&
+      FNlength &&
+      validatestate &&
       validatecity &&
       validatepincode
     ) {
-      console.log(userData);
-      const { data } = await axios.post(backendUrl + "/user/order", userData, {
+      userData.quantity = itemquanity;
+      userData.totalPrice = TotalPrice;
+      userData.discountCode = discountDetails.code;
+      userData.discountPrice = discountDetails.price;
+      userData.shippingTotal = shippingTotal;
+      userData.subtotal = subtotal;
+
+      const { data } = await serverUrl.post("/user/order", userData, {
         headers: {
           "Content-Type": "application/json",
         },
       });
     }
   };
-  console.log(nameErr);
   return (
     <>
       {notverifyUser && (
@@ -320,10 +357,21 @@ const Checkout = () => {
                 <input
                   type="text"
                   name="discount"
+                  onChange={(e) => setUserDiscount(e.target.value)}
                   placeholder="Discount code"
                 />
-                <button>Apply</button>
+                <button onClick={handleDiscount}>Apply</button>
+                <div className="discount-code">
+                  {" "}
+                  <span className="code">Eg: {discountDetails.code}</span>
+                  {discountState ? (
+                    <span>discount applied</span>
+                  ) : (
+                    discountState2 && <span>Not a valid code</span>
+                  )}
+                </div>
               </div>
+
               <div className="checkout-total">
                 <div className="checkout-total-1">
                   <p>Sub Total</p>
@@ -333,12 +381,18 @@ const Checkout = () => {
                   <p>Shipping</p>
                   <span>Rs {shippingTotal}</span>
                 </div>
+                {discountState && (
+                  <div className="checkout-total-1">
+                    <p>Discount</p>
+                    <span>Rs {discountDetails.price}</span>
+                  </div>
+                )}
               </div>
               <div className="checkout-total-main">
                 <h5>
                   Total <sub>Inclusive of GST</sub>{" "}
                 </h5>
-                <span>Rs {totalPrice}</span>
+                <span>Rs {TotalPrice}</span>
               </div>
               <div className="checkout-submit-btn">
                 <button onClick={handleFormSubmit}>Pay Now</button>
