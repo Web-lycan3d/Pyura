@@ -1,3 +1,6 @@
 {
-  "mongourl": "mongodb+srv://root:abhi0317@demo.mb7pd.mongodb.net/pyura"
+  "mongourl": "mongodb+srv://root:abhi0317@demo.mb7pd.mongodb.net/pyura",
+  "TWILIO_ACCOUNT_SID": "hie",
+  "TWILIO_AUTH_TOKEN": "hello",
+  "TWILIO_SID": "hvghfg"
 }
