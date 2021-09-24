@@ -1,8 +1,5 @@
 /** @format */
 
-// e9b7f3e559540f63533d695a5568eff8;
-// AC93ecb53c837737f63ceabfabd6748350;
-// VA1118079ecec03825b5ffdc3c70010624;
 const express = require("express");
 const router = express.Router();
 
