@@ -14,7 +14,8 @@ footer {
   flex-wrap: nowrap;
 
   justify-content: center;
-
+  position: relative;
+  z-index: 3000;
   .footer-logo {
     width: 30%;
     display: flex;
@@ -22,6 +23,7 @@ footer {
     align-items: center;
     position: relative;
     bottom: 0.25rem;
+
     h1 {
       font-family: "mainregular";
       font-size: 2rem;

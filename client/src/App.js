@@ -14,6 +14,7 @@ import AdminPanel from './pages/admin/admin.component'
 
 import Product from "./pages/Product/Product";
 import Checkout from "./pages/checkout/Checkout";
+import Ordersucces from "./pages/ordersuccess/Ordersucces";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route exact path="/about" component={About} />
         <Route exact path="/user/checkout" component={Checkout} />
         <Route exact path="/admin" component={AdminPanel} />
+        <Route exact path="/user/order/created" component={Ordersucces} />
       </Switch>
       <Footer />
     </Fragment>
