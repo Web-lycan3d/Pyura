@@ -17,13 +17,15 @@ router.post("/user/order", async (req, res) => {
     discountCode,
     shippingTotal,
     subtotal,
+    orderId,
+    discountAplliedState,
   } = req.body;
-  const orderid = nanoid();
+  // const orderid = nanoid();
   const userid = nanoid();
 
   const data = req.body;
 
-  data.orderId = orderid;
+  data.orderId = orderId;
   data.date = new Date().toLocaleDateString();
   data.orderTotal = totalPrice;
   data.quantity = quantity;
@@ -31,7 +33,8 @@ router.post("/user/order", async (req, res) => {
   data.discountCode = discountCode;
   data.shippingTotal = shippingTotal;
   data.subTotal = subtotal;
-  console.log(data);
+  data.discountAppliedState = discountAplliedState;
+
   try {
     const userExits = await Order.findOne({ phonenumber: phonenumber });
 
@@ -49,7 +52,7 @@ router.post("/user/order", async (req, res) => {
       await order.save();
     }
   } catch (error) {
-    console.log(error);
+    return res.status(404);
   }
 });
 

@@ -6,6 +6,7 @@ import "./orderstatus.styles.scss";
 import validator from "validator";
 import OrderDetails from "../../components/Orderdetails/OrderDetails";
 import serverUrl from "../../api/api";
+import api from "../../api/api";
 
 const OrderStatus = () => {
   const [phoneNo, setPhoneNo] = useState("");
@@ -16,8 +17,9 @@ const OrderStatus = () => {
   const [OTPformState, setOtpformState] = useState(false);
   const [OrderStatus, setOrderStatus] = useState(true);
   const [userOrderData, setuserOrderData] = useState("");
+  const [OtpverState, setOtpverState] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validatePhone = validator.isMobilePhone(phoneNo, ["en-IN"]);
 
@@ -31,24 +33,32 @@ const OrderStatus = () => {
         setOtpsent(true);
         setOtpformState(true);
       }, 2000);
+      const { data } = await api.post("/verify/user/phone", { phoneNo });
+      console.log(data);
     }
   };
 
   const handleOTP = async (e) => {
     e.preventDefault();
 
-    console.log(userOtp);
     // history.push({
     //   pathname:""
     // })
-
-    const { data } = await serverUrl.get("/user/details/" + phoneNo);
-
-    data && setuserOrderData(data);
-    data && setOrderStatus(false);
+    const { data } = await api.post("/verify/user/otp", { phoneNo, userOtp });
+    setOtpverState(false);
+    if (data.verified) {
+      setOtpverState(false);
+      const resp = await serverUrl.get("/user/details/" + phoneNo);
+      resp.data && setuserOrderData(resp.data);
+      resp.data && setOrderStatus(false);
+    } else {
+      setOtpverState(true);
+    }
   };
-  const handleResendOTP = () => {
-    console.log(phoneNo);
+  const handleResendOTP = async () => {
+    const { data } = await api.post("/verify/user/phone", { phoneNo });
+    console.log(data);
+    setOtpverState(false);
   };
   return (
     <div className="order-s-container">
@@ -120,8 +130,11 @@ const OrderStatus = () => {
                         disabled={!OTPformState}
                         className="usersubmit-btn ">
                         Submit
-                      </button>
+                      </button>{" "}
                     </div>
+                    {OtpverState && (
+                      <span className="error-msg">Not a valid OTP!</span>
+                    )}{" "}
                   </form>
                 </div>
                 <div className="order-s-bottom">

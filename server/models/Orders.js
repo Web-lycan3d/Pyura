@@ -30,6 +30,10 @@ const OrderSchema = new mongoose.Schema(
         address: String,
         state: String,
         city: String,
+        discountAppliedState: {
+          type: Boolean,
+          default: false,
+        },
         orderTotal: Number,
         quantity: String,
         discountPrice: Number,

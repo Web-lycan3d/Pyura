@@ -4,13 +4,11 @@ import React, { useEffect, useState } from "react";
 import "./checkout.styles.scss";
 import validator from "validator";
 import query from "query-string";
-import { useLocation } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import axios from "axios";
-import apiurl from "../../apiurl";
-import serverUrl from "../../api/api";
 
-const backendUrl = apiurl();
+import serverUrl from "../../api/api";
+import { Razorpay } from "../../components/payment/Razorpay";
 
 const discountDetails = {
   code: "code",
@@ -19,6 +17,7 @@ const discountDetails = {
 
 const Checkout = () => {
   const location = useLocation();
+  const history = useHistory();
   const [userData, setUserData] = useState({
     email: "",
     phonenumber: "",
@@ -42,7 +41,7 @@ const Checkout = () => {
   const [notverifyUser, setNotVerifyUser] = useState(false);
   const [verifyOTP, setVerifyOTP] = useState(false);
   const [userDiscount, setUserDiscount] = useState("");
-  const [discountState, setDiscountState] = useState(null);
+  const [discountState, setDiscountState] = useState(false);
   const [discountState2, setDiscountState2] = useState(false);
   const [TotalPrice, setTotalPrice] = useState("");
 
@@ -103,6 +102,7 @@ const Checkout = () => {
     } else {
       setDiscountState(false);
       setDiscountState2(true);
+      setTotalPrice(totalPrice);
     }
   };
 
@@ -114,8 +114,8 @@ const Checkout = () => {
 
     const validateFN = namePattern.test(firstname);
     const FNlength = firstname.length > 0;
-    const validatecity = city.length > 0;
-    const validatestate = state.length > 0;
+    const validatecity = city.length > 2;
+    const validatestate = state.length > 2;
     const validateAddress = address.length > 10;
     const validatepincode = pincodePattern.test(pincode);
 
@@ -163,12 +163,15 @@ const Checkout = () => {
       userData.discountPrice = discountDetails.price;
       userData.shippingTotal = shippingTotal;
       userData.subtotal = subtotal;
+      userData.discountAplliedState = discountState;
 
-      const { data } = await serverUrl.post("/user/order", userData, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const { data } = await serverUrl.get(
+        "/payment/order/?price=" + TotalPrice
+      );
+
+      if (data) {
+        const resp = Razorpay(userData, data, history);
+      }
     }
   };
   return (
@@ -330,7 +333,7 @@ const Checkout = () => {
                       <span
                         className="checkout-errors"
                         style={{ bottom: "0rem" }}>
-                        Required
+                        Both fields Must contain atleast 2 character's
                       </span>
                     )}
 

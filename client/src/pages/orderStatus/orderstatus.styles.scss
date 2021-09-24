@@ -95,6 +95,7 @@
 }
 .order-s-form {
   border-bottom: 2px solid #1a2771;
+  padding-bottom: 1.8rem;
   form {
     .userinput {
       width: 14rem;
@@ -139,6 +140,7 @@
         text-decoration: underline;
         cursor: pointer;
         font-weight: 500;
+        font-size: 0.9rem;
       }
     }
     .order-s-input-1 {
@@ -148,11 +150,12 @@
     }
     .order-s-input-2 {
       margin-top: 1rem;
-      margin-bottom: 1.95rem;
+      margin-bottom: 0.1rem;
     }
   }
 }
 .order-s-bottom {
+  margin-top: 0.2rem;
   font-family: "Poppins", sans-serif;
 
   p {

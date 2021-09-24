@@ -12,15 +12,15 @@ const OrdersList = ({ userData }) => {
         <div className="orderdetails-left">
           <div className="orderdetails-left-contents">
             <p>OrderId</p>
-            <span>{userData.orderId}</span>
+            <span className="orderdetail-span">{userData.orderId}</span>
           </div>
           <div className="orderdetails-left-contents">
             <p>Phone no.</p>
-            <span>{userData.phonenumber}</span>
+            <span className="orderdetail-span">{userData.phonenumber}</span>
           </div>
           <div className="orderdetails-left-contents">
             <p>Email id</p>
-            <span>{userData.email}</span>
+            <span className="orderdetail-span">{userData.email}</span>
           </div>{" "}
           <div className="orderdetails-left-address">
             <p>Shipping Address</p>
@@ -46,11 +46,13 @@ const OrdersList = ({ userData }) => {
               <p>Shipping</p>
               <span>Rs {userData.shippingTotal}</span>{" "}
             </div>
-            <div className="price-contents">
-              {" "}
-              <p>Discount</p>
-              <span>Rs {userData.discountPrice}</span>{" "}
-            </div>
+            {userData.discountAppliedState && (
+              <div className="price-contents">
+                {" "}
+                <p>Discount</p>
+                <span>Rs {userData.discountPrice}</span>{" "}
+              </div>
+            )}
           </div>
           <div className="orderdetails-total">
             <h3>

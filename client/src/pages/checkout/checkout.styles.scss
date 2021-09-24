@@ -3,7 +3,7 @@
 .checkout-container {
   width: 100%;
   height: 105vh;
-
+  overflow: hidden;
   padding-bottom: 2rem;
   position: relative;
 }
@@ -369,14 +369,19 @@
   }
 }
 @media screen and (max-width: 1500px) {
+  .checkout-img {
+    width: 25%;
+  }
   .checkout-details {
-    width: 70%;
+    width: 75%;
 
     .checkout-details-left {
       width: 40%;
     }
     .checkout-details-right {
-      width: 45%;
+      width: 50%;
+      position: relative;
+      left: 4%;
     }
   }
 }
