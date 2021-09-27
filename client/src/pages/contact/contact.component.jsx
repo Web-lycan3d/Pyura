@@ -31,10 +31,14 @@ const Contact = () => {
           </div>
         </div>
         <div className="map">
-          <img
+          {/* <img
             src="https://i.ibb.co/Ny6bbjx/Mask-Group-33.png"
             alt="Pyura location"
-          />
+          /> */}
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15554.35878126597!2d77.609869!3d12.934072!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6b6ca5b3791dd536!2sLycan%203D!5e0!3m2!1sen!2sin!4v1632742083133!5m2!1sen!2sin"
+            title="map"
+            loading="lazy"></iframe>
         </div>
         <div className="contact-content">
           <p>

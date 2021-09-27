@@ -1,6 +1,6 @@
 {
   "mongourl": "mongodb+srv://root:abhi0317@demo.mb7pd.mongodb.net/pyura",
-  "TWILIO_ACCOUNT_SID": "hie",
-  "TWILIO_AUTH_TOKEN": "hello",
-  "TWILIO_SID": "hvghfg"
+  "TWILIO_ACCOUNT_SID": "AC93ecb53c837737f63ceabfabd6748350",
+  "TWILIO_AUTH_TOKEN": "cd15a3909d5c20233718508622a20dc3",
+  "TWILIO_SID": "VA1118079ecec03825b5ffdc3c70010624"
 }

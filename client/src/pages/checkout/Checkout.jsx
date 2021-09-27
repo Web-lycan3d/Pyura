@@ -170,7 +170,7 @@ const Checkout = () => {
       );
 
       if (data) {
-        const resp = Razorpay(userData, data, history);
+        Razorpay(userData, data, history);
       }
     }
   };
