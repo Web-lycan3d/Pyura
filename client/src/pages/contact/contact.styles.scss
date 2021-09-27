@@ -77,10 +77,12 @@ $whitecolor: #eee;
     justify-content: center;
     width: 35%;
 
-    img {
-      width: 350px;
-      object-fit: cover;
-      height: auto;
+    iframe {
+      width: 280px;
+      border: 0;
+
+      height: 280px;
+      box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.116);
     }
   }
 

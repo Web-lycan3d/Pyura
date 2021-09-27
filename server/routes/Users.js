@@ -8,6 +8,34 @@ const router = express.Router();
 router.get("/", (req, res) => {
   res.send("Server is runing");
 });
+router.get("/user/details", async (req, res) => {
+  const userData = await Order.find();
+  if (userData) {
+    res.json(userData);
+  } else {
+    res.json({ message: "no orders found" });
+  }
+});
+router.put("/user/update/status", async (req, res) => {
+  const { orderid, phone, status } = req.body;
+  try {
+    const updateOrder = await Order.updateOne(
+      {
+        phonenumber: phone,
+        "orders.orderId": orderid,
+      },
+      {
+        $set: {
+          "orders.$.orderStatus": status,
+        },
+      }
+    );
+    res.json({ message: "updated" });
+  } catch (error) {
+    res.statusCode(404).json({ message: "server error" });
+  }
+});
+
 router.post("/user/order", async (req, res) => {
   const {
     phonenumber,

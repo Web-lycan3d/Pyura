@@ -1,7 +1,7 @@
 /** @format */
 
-import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./orderstatus.styles.scss";
 import validator from "validator";
 import OrderDetails from "../../components/Orderdetails/OrderDetails";
@@ -18,13 +18,20 @@ const OrderStatus = () => {
   const [OrderStatus, setOrderStatus] = useState(true);
   const [userOrderData, setuserOrderData] = useState("");
   const [OtpverState, setOtpverState] = useState(false);
+  const [OtpresendState, setOtpresendState] = useState(false);
+
+  const [serverErrorState, setServerErrorState] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const numbers = phoneNo.includes("+91");
+
     const validatePhone = validator.isMobilePhone(phoneNo, ["en-IN"]);
 
-    if (!validatePhone) {
+    if (!validatePhone || !numbers) {
       setPhoneNoErr(true);
+      setOtpsent(false);
+      setOtpformState(false);
     } else {
       setPhoneNoErr(false);
       setLoadingState(true);
@@ -33,8 +40,14 @@ const OrderStatus = () => {
         setOtpsent(true);
         setOtpformState(true);
       }, 2000);
-      const { data } = await api.post("/verify/user/phone", { phoneNo });
-      console.log(data);
+
+      try {
+        await api.post("/verify/user/phone", { phoneNo });
+
+        setServerErrorState(false);
+      } catch (error) {
+        setServerErrorState(true);
+      }
     }
   };
 
@@ -56,9 +69,19 @@ const OrderStatus = () => {
     }
   };
   const handleResendOTP = async () => {
-    const { data } = await api.post("/verify/user/phone", { phoneNo });
-    console.log(data);
-    setOtpverState(false);
+    setOtpresendState(true);
+    try {
+      const { data } = await api.post("/verify/user/phone", { phoneNo });
+      if (data) {
+        setTimeout(() => {
+          setOtpresendState(false);
+        }, 1000);
+        setOtpverState(false);
+      }
+      setServerErrorState(false);
+    } catch (error) {
+      setServerErrorState(true);
+    }
   };
   return (
     <div className="order-s-container">
@@ -99,17 +122,30 @@ const OrderStatus = () => {
                       )}
                     </div>{" "}
                     {phoneNorErr && (
-                      <span className="error-msg">Not Valid!</span>
+                      <span className="error-msg">Not Valid! include +91</span>
+                    )}
+                    {serverErrorState && (
+                      <span className="error-msg">
+                        Server error please try later...
+                      </span>
                     )}
                     {OTPsent && (
                       <>
                         <span className="error-msg">
                           OTP sent to {phoneNo}{" "}
                         </span>
-                        <p className="rensend-tag">
-                          To resend OTP
-                          <span onClick={handleResendOTP}> click here</span>
-                        </p>
+                        {OtpresendState ? (
+                          <span
+                            className="error-msg"
+                            style={{ display: "block" }}>
+                            OTP sent successfully
+                          </span>
+                        ) : (
+                          <p className="rensend-tag">
+                            To resend OTP
+                            <span onClick={handleResendOTP}> click here</span>
+                          </p>
+                        )}
                       </>
                     )}
                   </form>
