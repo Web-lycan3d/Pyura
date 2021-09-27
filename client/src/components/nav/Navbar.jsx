@@ -1,11 +1,16 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import "./navbar.styles.scss";
 import { BiCart } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { AiOutlineHome } from "react-icons/ai";
+import { RiContactsBookLine } from "react-icons/ri";
+import { BiDetail } from "react-icons/bi";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
+  const [navState, setNavState] = useState(false)
   return (
     <div className="nav-container">
       <div className="nav-contents">
@@ -27,6 +32,46 @@ const Navbar = () => {
               <BiCart className="nav-items-icon" /> Get yours!
             </button>
           </Link>
+        </div>
+        <div className="nav-bar">
+          <motion.div
+            initial={{ opacity: 0, x: "-5rem" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ x: "-5rem" }}
+            transition={{ duration: 0.9, easings: "anticipate" }}
+            className={navState ? "menu menu-active" : "menu"}
+            onClick={() => setNavState(!navState)}>
+            <span className="menu-green"></span>
+            <span className="menu-green"></span>
+            <span className="menu-green"></span>
+          </motion.div>
+          <div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ x: "-20rem" }}
+            className={
+              navState
+                ? "nav-bar-details nav-bar-details-active "
+                : "nav-bar-details"
+            }>
+            <ul className="nav-bar-ul">
+              <li className="menu-li-flex">
+                <Link to="/" className="nav-links" onClick={() => setNavState(!navState)}>
+                  <AiOutlineHome className="menu-li-icon"  /> Home
+                </Link>
+              </li>
+              <li className="menu-li-flex">
+                <Link to="/about" className="nav-links" onClick={() => setNavState(!navState)}>
+                  <BiDetail className="menu-li-icon" /> About
+                </Link>
+              </li>
+              <li className="menu-li-flex">
+                <Link to="/contact" className="nav-links" onClick={() => setNavState(!navState)}>
+                  <RiContactsBookLine className="menu-li-icon" /> Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
