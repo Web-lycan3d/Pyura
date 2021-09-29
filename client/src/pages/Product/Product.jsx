@@ -33,6 +33,29 @@ const Product = () => {
         <div className="product-img">
           <ImageCarausel />
         </div>
+        <div className="product-div-mobile">
+          <div className="product-order-quantity">
+            <IoIosArrowUp
+              className="arrow-icons"
+              onClick={() => setQuantity((preV) => preV + 1)}
+            />
+            <p>{Quantity > 0 ? Quantity : "-"}</p>
+            <IoIosArrowDown
+              className="arrow-icons"
+              onClick={() => setQuantity((preV) => preV - 1)}
+            />
+          </div>
+          <div className="product-btn">
+            <button disabled={quantityError} onClick={handleProductCheckout}>
+              Checkout
+            </button>
+          </div>
+          {quantityError && (
+            <span className="qunatity-error">
+              quantity can't be zero or negative
+            </span>
+          )}
+        </div>
         <div className="product-details">
           <h2>
             Pyura <span>air</span>

@@ -161,14 +161,110 @@
   p {
     font-weight: 700;
     font-size: 1.2rem;
+
     margin-bottom: 0.6rem;
   }
   span {
     font-size: 1rem;
+    color: #1a2771;
     .underline {
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: underline;
       cursor: pointer;
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .order-s-container {
+    height: auto;
+
+    background: transparent;
+  }
+  .order-s-contents {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .order-s-box {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    text-align: center;
+    padding: 0 1rem;
+    margin: 2rem auto 9rem;
+    padding-top: 4rem;
+    .order-s-box-contents {
+      overflow-y: visible;
+    }
+    h2 {
+      font-size: 2.1rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+    }
+    p {
+      font-weight: 400;
+    }
+    p:nth-child(1) {
+      font-weight: 600;
+    }
+  }
+  .order-s-form {
+    margin-top: 2rem;
+    form {
+      .userinput {
+        width: 70%;
+      }
+      .input-2 {
+        width: 40%;
+      }
+      .order-s-input-1 {
+        justify-content: center;
+      }
+      .error-msg {
+        font-size: 0.8rem;
+        margin-left: 0.4rem;
+
+        color: red;
+        display: block;
+        text-align: left !important;
+      }
+      .rensend-tag {
+        text-align: left !important;
+      }
+    }
+  }
+  .order-s-bottom {
+    margin-top: 1.6rem;
+  }
+}
+@media screen and (max-width: 526px) {
+  .order-s-box {
+    padding-top: 3rem;
+    h2 {
+      font-size: 2.1rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+    }
+    p {
+      width: 100%;
+      font-weight: 400;
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+    p:nth-child(1) {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+  }
+  .order-s-form {
+    margin-top: 2rem;
+    form {
+      .userinput {
+        width: 70%;
+      }
+      .input-2 {
+        width: 45%;
+      }
     }
   }
 }

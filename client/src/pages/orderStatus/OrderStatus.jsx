@@ -47,6 +47,7 @@ const OrderStatus = () => {
         setServerErrorState(false);
       } catch (error) {
         setServerErrorState(true);
+        setOtpsent(false);
       }
     }
   };

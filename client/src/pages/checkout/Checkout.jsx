@@ -9,6 +9,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 
 import serverUrl from "../../api/api";
 import { Razorpay } from "../../components/payment/Razorpay";
+import api from "../../api/api";
 
 const discountDetails = {
   code: "code",
@@ -44,6 +45,11 @@ const Checkout = () => {
   const [discountState, setDiscountState] = useState(false);
   const [discountState2, setDiscountState2] = useState(false);
   const [TotalPrice, setTotalPrice] = useState("");
+  const [resendState, setResendState] = useState(false);
+  const [otpError, setOtperror] = useState(false);
+  const [otpverified, setOtpverified] = useState(false);
+
+  const [serverError, setServerError] = useState(false);
 
   useEffect(() => {
     const { q } = query.parse(location.search);
@@ -62,6 +68,7 @@ const Checkout = () => {
 
   const handleCheckoutOTP = (e) => {
     e.preventDefault();
+    const numbers = userData.phonenumber.includes("+91");
 
     const validate = validator.isMobilePhone(userData.phonenumber, ["en-IN"]);
 
@@ -71,24 +78,60 @@ const Checkout = () => {
       setbtnLoader(false);
     }, 1500);
 
-    function validatePhone() {
-      if (validate) {
-        setPhoneError(false);
-        setOtpSentStatus(true);
-      } else {
+    async function validatePhone() {
+      if (!validate || !numbers) {
         setOtpSentStatus(false);
         setPhoneError(true);
+      } else {
+        setPhoneError(false);
+        setOtpSentStatus(true);
+        try {
+          await api.post("/verify/user/phone", {
+            phoneNo: userData.phonenumber,
+          });
+
+          setServerError(false);
+        } catch (error) {
+          setServerError(true);
+          setOtpSentStatus(false);
+        }
       }
     }
   };
 
-  const verifyOtp = () => {
-    console.log(userOtpin);
-    setVerifyOTP(true);
+  const verifyOtp = async () => {
+    try {
+      const { data } = await api.post("/verify/user/otp", {
+        phoneNo: userData.phonenumber,
+        userOtp: userOtpin,
+      });
+      if (data.verified) {
+        setVerifyOTP(true);
+        setOtperror(false);
+        setOtpverified(true);
+      } else {
+        setOtpverified(false);
+        setOtperror(true);
+        setVerifyOTP(false);
+      }
+    } catch (error) {}
   };
 
-  const handleResendOTP = () => {
-    console.log(userData.phonenumber);
+  const handleResendOTP = async () => {
+    setResendState(true);
+    setOtperror(false);
+    try {
+      await api.post("/verify/user/phone", {
+        phoneNo: userData.phonenumber,
+      });
+      setTimeout(() => {
+        setResendState(false);
+      }, 1500);
+      setServerError(false);
+    } catch (error) {
+      setServerError(true);
+      setOtpSentStatus(false);
+    }
   };
 
   const handleDiscount = () => {
@@ -240,14 +283,24 @@ const Checkout = () => {
                     <span className="checkout-errors">
                       OTP sent to {userData.phonenumber}{" "}
                     </span>{" "}
-                    <span className="checkout-otp-resend">
-                      To resend OTP{" "}
-                      <span onClick={handleResendOTP}>Click here</span>
-                    </span>
+                    {resendState ? (
+                      <>
+                        <span className="checkout-errors">
+                          OTP sent successfully
+                        </span>
+                      </>
+                    ) : (
+                      <span className="checkout-otp-resend">
+                        To resend OTP{" "}
+                        <span onClick={handleResendOTP}>Click here</span>
+                      </span>
+                    )}
                   </>
                 )}
                 {phoneError && (
-                  <span className="checkout-errors">Not valid</span>
+                  <span className="checkout-errors">
+                    Not valid! or include +91
+                  </span>
                 )}
                 <div className="checkout-otp">
                   <input
@@ -262,7 +315,14 @@ const Checkout = () => {
                     Verify
                   </button>
                 </div>
-
+                {otpError && (
+                  <span className="checkout-errors">Not a Valid OTP</span>
+                )}
+                {otpverified && (
+                  <span className="checkout-errors" style={{ color: "green" }}>
+                    OTP verified
+                  </span>
+                )}
                 <div className="checkout-address">
                   <h4>Shipping Address</h4>
                   <div className="address-name">

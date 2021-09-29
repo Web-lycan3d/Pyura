@@ -168,8 +168,8 @@ $maincolor: #1a2771;
   .second-container {
     width: 100%;
     height: auto;
-    position: unset;
-    bottom: 0rem;
+    position: relative;
+    bottom: 2rem;
     padding-top: 2rem;
     padding-bottom: 0rem;
     margin-bottom: 2rem;
@@ -184,18 +184,18 @@ $maincolor: #1a2771;
       align-items: center;
       margin: 0 auto;
       position: unset;
-      flex-direction: column;
+      flex-direction: column-reverse;
 
       .second-header {
-        position: unset;
-        top: 0rem;
+        position: absolute;
+        top: 1rem;
         z-index: unset;
         width: 100%;
-        height: 5rem;
+        height: 7rem;
 
         h3 {
           display: flex;
-          font-size: 4rem;
+          font-size: 7rem;
           margin: 0;
           justify-content: center;
         }
@@ -217,8 +217,17 @@ $maincolor: #1a2771;
       .second-img {
         position: relative;
         z-index: unset;
-        width: 100%;
+        width: 65%;
         bottom: 0rem;
+        right: -3rem;
+        .second-img-text {
+          right: 2.5rem;
+          bottom: 1.5rem;
+
+          p {
+            font-size: 0.95rem;
+          }
+        }
       }
     }
     .second-cards {
@@ -237,6 +246,36 @@ $maincolor: #1a2771;
         position: relative;
         margin-bottom: 2rem;
       }
+    }
+  }
+}
+@media screen and (max-width: 526px) {
+  .second-container .second-contents {
+    .second-header {
+      top: 1rem;
+      h3 {
+        font-size: 460%;
+      }
+    }
+
+    .second-img {
+      right: -0.6rem;
+      width: 80%;
+      .second-img-text {
+        right: 2.5rem;
+        bottom: 1.5rem;
+        width: 90px;
+        height: 90px;
+        p {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+  .second-text {
+    p {
+      width: unset;
+      font-size: 0.85rem;
     }
   }
 }

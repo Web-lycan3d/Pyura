@@ -10,7 +10,7 @@ const authToken = config.get("TWILIO_AUTH_TOKEN");
 const client = require("twilio")(accountSid, authToken);
 
 router.post("/user/phone", (req, res) => {
-  console.log("S");
+  console.log(req.body);
   const { phoneNo } = req.body;
   client.verify
     .services(config.get("TWILIO_SID"))

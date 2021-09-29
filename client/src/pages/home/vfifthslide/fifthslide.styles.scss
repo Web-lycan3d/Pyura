@@ -4,6 +4,7 @@ $maincolor: #1a2771;
   width: 100%;
   height: 70vh;
   position: relative;
+  overflow-x: hidden;
   .fifth-bg {
     width: 100%;
     height: 80%;
@@ -69,17 +70,20 @@ $maincolor: #1a2771;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
   .fifth-img {
-    width: 99%;
+    width: 85%;
     height: auto;
-    padding: 4% 0%;
+    padding: 12% 0% 4%;
   }
   .fifth-text {
-    width: 100%;
+    margin-top: 1rem;
+    width: 95%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+
     font-family: "Poppins", sans-serif;
 
     h3 {
@@ -87,6 +91,22 @@ $maincolor: #1a2771;
       text-align: center;
     }
     span {
+      max-width: 100%;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+  }
+}
+@media screen and (max-width: 526px) {
+  .fifth-text {
+    h3 {
+      margin-top: 1.5rem;
+      font-size: 1.5rem;
+      margin-bottom: 1.8rem;
+      text-align: center;
+    }
+    span {
+      max-width: 100%;
       font-size: 0.85rem;
       text-align: center;
     }

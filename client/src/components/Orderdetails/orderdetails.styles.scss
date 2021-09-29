@@ -1,5 +1,9 @@
 /** @format */
-
+.order-details-overflow {
+  width: 100%;
+  height: 30rem;
+  overflow-y: auto;
+}
 .orderdetails-box {
   width: 95%;
   height: 90%;
@@ -169,5 +173,74 @@
     margin-top: 0.5rem;
     font-size: 1.4rem;
     font-weight: 500;
+  }
+}
+@media screen and (max-width: 800px) {
+  .orderdetails-box {
+    width: 95%;
+    min-height: 10rem;
+    font-family: "Poppins", sans-serif;
+    margin: 5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 4rem;
+  }
+  .orderdetails-header {
+    justify-content: space-between;
+    width: 100%;
+    h1 {
+      font-size: 1.2rem;
+    }
+    h4 {
+      font-size: 1.25rem;
+    }
+  }
+  .orderdetails-box:nth-child(2) {
+    margin-top: 2.6rem !important;
+  }
+  .orderdetails-contents {
+    flex-direction: column;
+    align-items: center;
+    .orderdetails-left {
+      width: 95%;
+      .orderdetails-left-contents {
+        text-align: left !important;
+      }
+      .orderdetails-left-address {
+        p {
+          text-align: left !important;
+        }
+        span {
+          text-align: left !important;
+        }
+        .address-box {
+          height: 4rem;
+        }
+      }
+    }
+    .orderdetails-right {
+      width: 95%;
+    }
+  }
+}
+@media screen and (max-width: 520px) {
+  .orderdetails-box {
+    width: 100%;
+    min-height: 10rem;
+  }
+  .orderdetails-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+    h1 {
+      font-size: 1.1rem;
+    }
+    h4 {
+      margin-top: 0.1rem;
+      font-size: 1.15rem;
+    }
   }
 }

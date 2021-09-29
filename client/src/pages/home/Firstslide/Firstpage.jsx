@@ -6,6 +6,11 @@ import { AiOutlineDown } from "react-icons/ai";
 const Firstpage = () => {
   return (
     <div className="firstpage-container">
+      <div className="firstpage-mobile-header">
+        <h1>
+          Pyura <span>air</span>
+        </h1>
+      </div>
       <div className="bg-img">
         <img src="../images/firstpage/img1.svg" alt="error" />
       </div>

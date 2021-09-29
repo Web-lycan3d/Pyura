@@ -80,7 +80,7 @@ $whitecolor: #eee;
     iframe {
       width: 280px;
       border: 0;
-
+      margin-bottom: 1.5rem;
       height: 280px;
       box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.116);
     }
@@ -127,6 +127,7 @@ $whitecolor: #eee;
         letter-spacing: 1px;
         color: #1a2274;
         font-weight: 800;
+        font-size: 2.8rem;
       }
 
       h4 {
@@ -152,9 +153,12 @@ $whitecolor: #eee;
       padding-top: 4%;
       width: 90%;
       justify-content: center;
-
+      margin-bottom: 1rem;
+      .detail {
+        margin-bottom: 1.1rem;
+      }
       .detail span {
-        font-size: 14px;
+        font-size: 15px;
         color: #1a2771;
       }
     }
@@ -173,6 +177,24 @@ $whitecolor: #eee;
         color: #1a2771;
         text-align: center;
       }
+    }
+  }
+}
+@media screen and (max-width: 530px) {
+  .contact-title {
+    margin-top: 1rem;
+    h1 {
+      letter-spacing: 1px;
+      color: #1a2274;
+      font-weight: 800;
+      font-size: 2.2rem !important;
+    }
+
+    h4 {
+      width: 95%;
+      font-size: 0.8rem !important;
+      color: #1a2274;
+      text-align: center;
     }
   }
 }

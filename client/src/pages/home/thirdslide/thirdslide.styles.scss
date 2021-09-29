@@ -71,7 +71,7 @@
       transform: unset;
       top: 0;
       color: white;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       margin-bottom: 0.6rem;
       align-items: center;
       justify-items: center;
@@ -89,5 +89,22 @@
     width: 90%;
     text-align: center;
     font-size: 0.85rem;
+  }
+}
+@media screen and (max-width: 526px) {
+  .third-contents {
+    width: 100%;
+    height: 100%;
+
+    h5 {
+      font-size: 1.5rem;
+      margin-top: 0.6rem;
+    }
+    p {
+      position: relative;
+      top: 1.6rem;
+      opacity: 0.95;
+      line-height: 2;
+    }
   }
 }

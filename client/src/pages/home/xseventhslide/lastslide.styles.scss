@@ -4,6 +4,7 @@ $maincolor: #1a2771;
   width: 100%;
   height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 .seventh-contents {
   width: 100%;
@@ -83,7 +84,7 @@ $maincolor: #1a2771;
 @media screen and (max-width: 800px) {
   .seventh-container {
     width: 100%;
-    height: auto;
+    height: 85vh;
     position: relative;
     display: block;
   }
@@ -92,11 +93,11 @@ $maincolor: #1a2771;
     height: auto;
   }
   .seventh-text {
-    width: 95%;
+    width: 90%;
     font-family: "Poppins", sans-serif;
     position: unset;
     left: 0%;
-
+    margin: 0 auto;
     h5 {
       font-size: 2.2rem;
       color: #1a2771;
@@ -110,13 +111,36 @@ $maincolor: #1a2771;
       width: unset;
       text-align: center;
     }
-    .seventh-img {
-      width: 70%;
-      bottom: -4.4rem;
-    }
   }
+
   .seventh-text button {
-    margin: 2.2rem 1.5rem;
+    margin: 2rem auto;
     /* margin-bottom: 2.2rem; */
+  }
+}
+@media screen and (max-width: 526px) {
+  .seventh-container {
+    height: 100vh;
+  }
+  .seventh-img {
+    width: 100%;
+    height: 55%;
+
+    bottom: -4.4rem;
+  }
+  .seventh-text {
+    width: 100%;
+
+    h5 {
+      font-size: 1.6rem;
+      color: #1a2771;
+      margin: 0.6rem 0 1.2rem;
+      text-align: center;
+    }
+    span {
+      width: 90%;
+      margin: 0 auto;
+      font-size: 0.8rem;
+    }
   }
 }

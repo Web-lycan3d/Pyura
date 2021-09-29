@@ -67,7 +67,7 @@ $maincolor: #1a2771;
     flex-direction: column;
   }
   .sixth-img-header {
-    width: 90%;
+    width: 85%;
     padding: 10% 0%;
 
     img {
@@ -85,13 +85,17 @@ $maincolor: #1a2771;
     flex-direction: column;
   }
   .sixth-img img {
-    width: 100%;
-    height: auto;
+    width: 65%;
+    position: relative;
+    bottom: 3rem;
     object-fit: contain;
+    display: block;
+    margin: 0 auto;
   }
   .sixth-text {
     width: 95%;
-
+    position: relative;
+    bottom: 2rem;
     h4 {
       font-size: 1.8rem;
       text-align: center;
