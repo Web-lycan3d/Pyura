@@ -53,3 +53,55 @@ $maincolor: #1a2771;
     display: inline-block;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .sixth-container {
+    width: 100%;
+    height: auto;
+    padding-bottom: 3rem;
+  }
+  .sixth-contents {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .sixth-img-header {
+    width: 90%;
+    padding: 10% 0%;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+  .sixth-contents-main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .sixth-img img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .sixth-text {
+    width: 95%;
+
+    h4 {
+      font-size: 1.8rem;
+      text-align: center;
+    }
+
+    span {
+      width: unset;
+      display: block;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+  }
+}

@@ -164,3 +164,79 @@ $maincolor: #1a2771;
     }
   }
 }
+@media screen and (max-width: 800px) {
+  .second-container {
+    width: 100%;
+    height: auto;
+    position: unset;
+    bottom: 0rem;
+    padding-top: 2rem;
+    padding-bottom: 0rem;
+    margin-bottom: 2rem;
+    flex-direction: column;
+    display: flex;
+
+    .second-contents {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      position: unset;
+      flex-direction: column;
+
+      .second-header {
+        position: unset;
+        top: 0rem;
+        z-index: unset;
+        width: 100%;
+        height: 5rem;
+
+        h3 {
+          display: flex;
+          font-size: 4rem;
+          margin: 0;
+          justify-content: center;
+        }
+      }
+      .second-text {
+        width: 95%;
+        position: unset;
+        z-index: unset;
+        top: 0rem;
+        left: 0rem;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+
+        .second-text p {
+          width: unset;
+        }
+      }
+      .second-img {
+        position: relative;
+        z-index: unset;
+        width: 100%;
+        bottom: 0rem;
+      }
+    }
+    .second-cards {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 4%;
+      position: unset;
+      top: 0;
+
+      .second-card-box {
+        width: 260px;
+        height: 280px;
+        position: relative;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}

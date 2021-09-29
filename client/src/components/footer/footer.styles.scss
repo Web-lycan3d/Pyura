@@ -12,7 +12,6 @@ footer {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-
   justify-content: center;
   position: relative;
   z-index: 3000;
@@ -113,6 +112,39 @@ footer {
       &:hover a {
         color: white;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  footer {
+    justify-content: space-evenly;
+    height: auto;
+    z-index: 0;
+
+    .footer-logo {
+      width: 30%;
+
+      h1 {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+
+        span {
+          font-size: 0.85rem;
+        }
+      }
+    }
+
+    .footer-privacy {
+      width: 70%;
+
+      .privacy {
+        margin-right: 5%;
+        font-size: 0.5rem;
+      }
+    }
+    .footer-nav {
+      display: none;
     }
   }
 }

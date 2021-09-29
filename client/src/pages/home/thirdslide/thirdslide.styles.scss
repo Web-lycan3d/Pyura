@@ -45,3 +45,49 @@
     object-fit: cover;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .third-container {
+    width: 100%;
+    height: auto;
+    position: unset;
+    padding-bottom: 4rem;
+    margin-bottom: 2rem;
+    display: flex;
+  }
+  .third-contents {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+
+    h5 {
+      position: unset;
+      left: 0;
+      display: flex;
+      transform: unset;
+      top: 0;
+      color: white;
+      font-size: 2.5rem;
+      margin-bottom: 0.6rem;
+      align-items: center;
+      justify-items: center;
+      text-align: center;
+      padding-top: 4%;
+      margin: 0;
+    }
+  }
+  .third-img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .third-contents p {
+    width: 90%;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+}

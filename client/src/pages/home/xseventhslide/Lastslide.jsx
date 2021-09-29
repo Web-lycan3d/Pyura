@@ -8,7 +8,7 @@ const Lastslide = () => {
     <div className="seventh-container">
       <div className="seventh-contents">
         <div className="seventh-text">
-          <h5>Heading yet to come</h5>
+          <h5>Invest in a safer future</h5>
           <span>
             To sum it up, Pyura Air is and always will be an innovation that was
             born out of the need to better the world we live in. In these

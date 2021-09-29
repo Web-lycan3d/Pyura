@@ -4,9 +4,6 @@ import React, { useState } from "react";
 import "./navbar.styles.scss";
 import { BiCart } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { AiOutlineHome } from "react-icons/ai";
-import { RiContactsBookLine } from "react-icons/ri";
-import { BiDetail } from "react-icons/bi";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
@@ -57,17 +54,27 @@ const Navbar = () => {
             <ul className="nav-bar-ul">
               <li className="menu-li-flex">
                 <Link to="/" className="nav-links" onClick={() => setNavState(!navState)}>
-                  <AiOutlineHome className="menu-li-icon"  /> Home
+                  Home
+                </Link>
+              </li>
+              <li className="menu-li-flex">
+                <Link to="/user/order" className="nav-links" onClick={() => setNavState(!navState)}>
+                  Order Status
+                </Link>
+              </li>
+              <li className="menu-li-flex">
+                <Link to="/user/product" className="nav-links" onClick={() => setNavState(!navState)}>
+                  Get Yours
                 </Link>
               </li>
               <li className="menu-li-flex">
                 <Link to="/about" className="nav-links" onClick={() => setNavState(!navState)}>
-                  <BiDetail className="menu-li-icon" /> About
+                  About
                 </Link>
               </li>
               <li className="menu-li-flex">
                 <Link to="/contact" className="nav-links" onClick={() => setNavState(!navState)}>
-                  <RiContactsBookLine className="menu-li-icon" /> Contact
+                  Contact
                 </Link>
               </li>
             </ul>

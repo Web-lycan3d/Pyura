@@ -102,3 +102,56 @@
     }
   }
 }
+@media screen and (max-width: 700px){
+  .ly-relative {
+    position: unset;
+}
+.ly-image {
+  width: 100%;
+  height: auto;
+  display: none;
+}
+.about-header {
+  position: unset;
+  padding-top: 20%;
+  /* text-align: center; */
+  /* top: 25%; */
+  /* left: 5%; */
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #fff;
+
+  h1 {
+    font-family: "mainthin";
+    font-size: 5rem;
+    letter-spacing: 1.6px;
+    margin: 0%;
+    color: #1a2274;
+    font-weight: 600;
+  }
+}
+.about-content {
+  display: flex;
+  padding: 5%;
+  justify-content: center;
+  align-items: center;
+}
+.founders-note-sec {
+  flex-direction: column;
+}
+.founders-note-sec .founders-note-content {
+  display: flex;
+  flex: 2 1;
+  align-items: center;
+  flex-direction: column;
+}
+.founders-note-sec .founders-note-content p {
+  font-size: 0.85rem;
+  text-align: center;
+}
+.founders-note-sec .founders-note-content .greeting {
+  padding-right: 2%;
+}
+}

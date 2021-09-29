@@ -80,3 +80,43 @@ $maincolor: #1a2771;
     width: 70%;
   }
 }
+@media screen and (max-width: 800px) {
+  .seventh-container {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+  }
+  .seventh-contents {
+    width: 100%;
+    height: auto;
+  }
+  .seventh-text {
+    width: 95%;
+    font-family: "Poppins", sans-serif;
+    position: unset;
+    left: 0%;
+
+    h5 {
+      font-size: 2.2rem;
+      color: #1a2771;
+      margin: 0.6rem 0 2rem;
+      text-align: center;
+    }
+
+    span {
+      font-size: 0.85rem;
+      display: block;
+      width: unset;
+      text-align: center;
+    }
+    .seventh-img {
+      width: 70%;
+      bottom: -4.4rem;
+    }
+  }
+  .seventh-text button {
+    margin: 2.2rem 1.5rem;
+    /* margin-bottom: 2.2rem; */
+  }
+}
