@@ -1,13 +1,11 @@
 /** @format */
 
-import React, { useState } from "react";
-
 import api from "../../api/api";
 
 export const Razorpay = (userData, data, history) => {
   //creating script tag
 
-  var options = {
+  let options = {
     key: "rzp_test_6zVUH0RpvBsqx6", // Enter the Key ID generated from the Dashboard
     amount: "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     currency: "INR",
@@ -29,7 +27,7 @@ export const Razorpay = (userData, data, history) => {
           history.push(
             `/user/order/created/?orderid=${userData.orderId}&phone=${userData.phonenumber}&email=${userData.email}`
           );
-          const { data } = await api.post("/user/order", userData, {
+          await api.post("/user/order", userData, {
             headers: {
               "Content-Type": "application/json",
             },

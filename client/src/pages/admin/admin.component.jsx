@@ -3,7 +3,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import OrderOverview from "../../components/AdminDashboard/OrderOverview.component";
-import querystring from "query-string";
 
 import "./admin.styles.scss";
 import api from "../../api/api";

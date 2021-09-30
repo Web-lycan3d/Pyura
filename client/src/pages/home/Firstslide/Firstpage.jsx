@@ -33,8 +33,10 @@ const Firstpage = () => {
         </div>
 
         <div className="center-text">
-          <p>Learn More!</p>
-          <AiOutlineDown className="center-down-icon" />
+          <p>Learn More !</p>{" "}
+          <a href="#pagetwo">
+            <AiOutlineDown className="center-down-icon" />
+          </a>
         </div>
       </div>
       <div className="firstpage-contents-2">

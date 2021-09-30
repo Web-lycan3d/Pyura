@@ -94,6 +94,36 @@ $maincolor: #1a2771;
     }
   }
 }
+@media only screen and (max-width: 1200px) and (min-width: 800px) {
+  .forth-text {
+    h1 {
+      font-size: 1.9rem;
+    }
+    span {
+      font-size: 1rem;
+      line-height: 1.9;
+    }
+  }
+  .forth-img {
+    width: 70%;
+    img {
+      object-fit: contain;
+    }
+  }
+  .table-data {
+    width: 75%;
+    left: 0;
+    margin-left: 0;
+    margin: 0 0 2.5rem;
+    table {
+      tr {
+        td {
+          font-size: 0.85rem;
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 800px) {
   .forth-container {
     width: 100%;

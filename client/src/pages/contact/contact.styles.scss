@@ -103,6 +103,46 @@ $whitecolor: #eee;
     }
   }
 }
+@media only screen and (max-width: 1200px) and (min-width: 800px) {
+  .contact-banner {
+    height: 12.5rem;
+    .contact-title {
+      h1 {
+        font-size: 3rem;
+      }
+      h4 {
+        font-size: 1rem;
+      }
+    }
+  }
+  .contact-container {
+    height: 50vh;
+    .contact-details {
+      .detail {
+        span {
+          font-size: 1.1rem;
+        }
+      }
+    }
+    .contact-content {
+      p {
+        font-size: 0.9rem;
+        line-height: 2;
+      }
+    }
+    .map {
+      display: flex;
+      justify-content: center;
+      width: 35%;
+
+      iframe {
+        width: 280px;
+
+        height: 260px;
+      }
+    }
+  }
+}
 @media screen and (max-width: 800px) {
   .contact-banner {
     display: flex;

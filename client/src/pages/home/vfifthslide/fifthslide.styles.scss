@@ -54,7 +54,24 @@ $maincolor: #1a2771;
     color: #1a2771e3;
   }
 }
+@media only screen and (max-width: 1200px) and (min-width: 800px) {
+  .fifth-text {
+    margin-top: 1rem;
 
+    font-family: "Poppins", sans-serif;
+
+    h3 {
+      font-size: 1.8rem;
+    }
+    span {
+      max-width: 100%;
+      font-size: 0.9rem;
+    }
+  }
+  .fifth-img {
+    width: 50%;
+  }
+}
 @media screen and (max-width: 800px) {
   .fifth-container {
     width: 100%;

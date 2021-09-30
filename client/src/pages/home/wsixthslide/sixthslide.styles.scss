@@ -53,7 +53,29 @@ $maincolor: #1a2771;
     display: inline-block;
   }
 }
-
+@media only screen and (max-width: 1200px) and (min-width: 800px) {
+  .sixth-img {
+    height: 70%;
+    width: 40%;
+    img {
+      width: 120%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  .sixth-text {
+    text-align: right;
+    width: 60%;
+    padding-right: 2rem;
+    h4 {
+      font-size: 1.6rem;
+    }
+    span {
+      font-size: 0.95rem;
+      line-height: 2;
+    }
+  }
+}
 @media screen and (max-width: 800px) {
   .sixth-container {
     width: 100%;

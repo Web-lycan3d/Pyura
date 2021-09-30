@@ -20,7 +20,7 @@ const Secondslide = () => {
     },
   ];
   return (
-    <div className="second-container">
+    <div className="second-container" id="pagetwo">
       <div className="second-contents">
         <div className="second-header">
           <h3>COVID-19</h3>

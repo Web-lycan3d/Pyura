@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { Fragment } from "react";
+import React from "react";
 import { IoMail, IoCall, IoLocation } from "react-icons/io5";
 
 import "./contact.styles.scss";

@@ -297,6 +297,11 @@ const Checkout = () => {
                     )}
                   </>
                 )}
+                {serverError && (
+                  <span className="checkout-errors">
+                    Server error please try again later...
+                  </span>
+                )}
                 {phoneError && (
                   <span className="checkout-errors">
                     Not valid! or include +91
