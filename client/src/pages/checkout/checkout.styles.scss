@@ -376,8 +376,6 @@
   margin-top: 1.5rem;
   button {
     @include button();
-    background: rgb(245, 59, 59);
-    border: 2px solid rgb(245, 59, 59);
   }
 }
 @media screen and (max-width: 1500px) {
